@@ -17,18 +17,19 @@
 	int knightTwoDamage = 15;
 
 
-	void draw()
+	void draw(bool attackWhich)
 	{
 		if(knightOneHealth > 0 && knightTwoHealth > 0)
 		{
-			system("cls");
-			std::cout << "your Health " << knightOneHealth << std::endl;
+				system("cls");
+				std::cout << "your Health: " << knightOneHealth << std::endl;
+				std::cout << "Knight two's Health: " << knightTwoHealth << std::endl;
 		}
-	
+		
 
 		else if (knightTwoHealth <= 0 && hasShownWinner == false)
 		{
-			std::cout << "Player One Win's!!" << std::endl;
+			std::cout << "Player One Wins!!" << std::endl; //changed for "win's" to "wins"
 			hasShownWinner = true;
 		}
 	}
@@ -46,6 +47,8 @@ int doAttack(int currentHealth, int amountOfDamage, int multiplier)
 
 void handleKey(char c)
 {
+	bool attackWhichKnight = 0; //added "attackWhichKnight" boolean to tell the program which health to display
+
 	if (c == 'q')
 	{
 		std::cout << "should quit" << std::endl;
@@ -56,14 +59,18 @@ void handleKey(char c)
 	{
 		std::cout << "Player One has taken damamage" << std::endl;
 		knightOneHealth = doAttack(knightOneHealth, knightTwoDamage, 1);
+		attackWhichKnight = true;
+		draw(attackWhichKnight); //the boolean gets inserted into the "draw" function
 	}
-	draw();
+	
 	if (c == 'l')
 	{
 		std::cout << "Player Two Has Taken Damage" << std::endl;
 		knightTwoHealth = doAttack(knightTwoHealth, knightOneDamage, 1);
+		attackWhichKnight = false;
+		draw(attackWhichKnight);
 	}
-	draw();
+
 }
 
 int main()
