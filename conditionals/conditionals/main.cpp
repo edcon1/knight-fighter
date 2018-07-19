@@ -2,52 +2,8 @@
 #include <random>
 #include <ctime>
 #include "idle_clicker_helper.h"
-void calculator()
-{
-	int numberOne = 0;
-	int numberTwo = 0;
-	char operation = 0;
 
-	int result;
-
-	std::cout << "enter first number: ";
-	std::cin >> numberOne;
-
-	std::cout << "enter second number: ";
-	std::cin >> numberTwo;
-
-	std::cout << "enter operation you would like to do: ";
-	std::cin >> operation;
-
-	
-	switch (operation)
-	{
-	case '+':
-	{
-		result = numberOne + numberTwo;
-		std::cout << "answer: " << result << std::endl;
-		//do something
-		break;
-	}
-	case '-':
-	{
-		result = numberOne - numberTwo;
-		std::cout << "answer: " << result << std::endl;
-		//do something
-		break;
-	}
-	default:
-	{
-		//Tell user it is a invalid operation
-	}
-	}
-	system("pause");
-}
-
-	//calculator
-
-
-	//Knight one : Francis
+//Knight one : Francis
 	int knightOneHealth = 1000;
 	int knightOneDamage = 15;
 
